@@ -6,6 +6,14 @@ module.exports = {
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-hello-world`,
+      options: {
+        optionA: `Hello world`,
+        optionB: true,
+        greeting: `Hello world`,
+      }
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     {

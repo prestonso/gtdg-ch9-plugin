@@ -5,3 +5,11 @@ exports.onPreInit = (_, pluginOptions) => {
     )
   }
 }
+
+exports.pluginOptionsSchema = ({ Joi }) => {
+  return Joi.object({
+    optionA: Joi.string().required().description(`Enables optionA.`),
+    optionB: Joi.boolean().description(`Enables optionB.`),
+    greeting: Joi.string().required().description(`Greeting logged to console.`),
+  })
+}

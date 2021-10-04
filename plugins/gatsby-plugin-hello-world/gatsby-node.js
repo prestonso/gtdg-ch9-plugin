@@ -22,3 +22,19 @@ exports.pluginOptionsSchema = ({ Joi }) => {
       .description(`Greeting logged to console.`),
   })
 }
+
+exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
+  const nodeData = {
+    title: "Sample Node",
+    description: "Here is a sample node!",
+  }
+  const newNode = {
+    ...nodeData,
+    id: createNodeId("SampleNode-testid"),
+    internal: {
+      type: "SampleNode",
+      contentDigest: createContentDigest(nodeData),
+    },
+  }
+  actions.createNode(newNode)
+}

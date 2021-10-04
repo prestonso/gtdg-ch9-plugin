@@ -10,6 +10,9 @@ exports.pluginOptionsSchema = ({ Joi }) => {
   return Joi.object({
     optionA: Joi.string().required().description(`Enables optionA.`),
     optionB: Joi.boolean().description(`Enables optionB.`),
-    greeting: Joi.string().required().description(`Greeting logged to console.`),
+    greeting: Joi.string()
+      .required()
+      .default(`This is the default greeting.`)
+      .description(`Greeting logged to console.`),
   })
 }

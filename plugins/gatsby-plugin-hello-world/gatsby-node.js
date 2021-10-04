@@ -8,7 +8,13 @@ exports.onPreInit = (_, pluginOptions) => {
 
 exports.pluginOptionsSchema = ({ Joi }) => {
   return Joi.object({
-    optionA: Joi.string().required().description(`Enables optionA.`),
+    optionA: Joi.string()
+      .required()
+      .description(`Enables optionA.`)
+      .messages({
+        // Override the error message if .required() fails.
+        "any.required": `"optionA" needs to be defined as true or false.`,
+      }),
     optionB: Joi.boolean().description(`Enables optionB.`),
     greeting: Joi.string()
       .required()
